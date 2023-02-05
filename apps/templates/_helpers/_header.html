@@ -1,0 +1,16 @@
+<header>
+    <ul>
+        <li>
+            <a href="{% url 'root:home_page' %}">Home Page</a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:greetings_default' %}">About me</a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:users_accounts' %}">Create users accounts</a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:users_accounts_amount' amount=5 %}">Create users accounts with amount</a>
+        </li>
+    </ul>
+</header>
