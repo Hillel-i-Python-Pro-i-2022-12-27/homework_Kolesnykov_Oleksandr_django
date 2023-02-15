@@ -45,7 +45,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    "apps.animals",
+    "apps.contacts",
     "apps.first_example",
 ]
 
