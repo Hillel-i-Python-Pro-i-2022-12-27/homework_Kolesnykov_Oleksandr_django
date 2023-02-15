@@ -1,0 +1,4 @@
+from .index_view import home_page
+from .greetings_view import greetings_with_name_and_age
+from .users_accounts_view import create_users_accounts
+from .users_accounts_view import create_users_accounts_amount

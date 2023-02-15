@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ Title }}</title>
+</head>
+<body>
+<div>
+{% include '_helpers/_header.html' %}
+{% block content %}
+    <div>
+        <p>This is _base.html, block "content"</p>
+    </div>
+{% endblock %}
+</div>
+</body>
+</html>
