@@ -4,7 +4,11 @@
     <ol>
         {% for user in users %}
             <li>
-                <span>{{ user}}</span>
+                <span>{{ user.name }}</span>
+                <span> - </span>
+                <span>{{ user.user_email }}</span>
+                <span> - </span>
+                <span>{{ user.password }}</span>
             </li>
         {% endfor %}
     </ol>
