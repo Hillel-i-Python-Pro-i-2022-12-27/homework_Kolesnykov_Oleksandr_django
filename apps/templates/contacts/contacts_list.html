@@ -10,7 +10,22 @@
         {% for contact in object_list %}
             <li>
             <div class="my-element-style">
-                <p> {{ contact.user_name }}
+            <div class="my-photo">
+                {% if contact.photo %}
+                    <img src="{{ contact.photo.url }}" alt="Photo">
+                {% endif %}
+            </div>
+            <div class="my-element-content">
+
+                <p>{{ contact.user_name }}</p>
+
+                {% if contact.department is not None%}
+                    <p>Department: {{ contact.department }}</p>
+                {% endif %}
+                <p>Phone number: {{ contact.phone_number }}</p>
+            </div>
+
+                <div class="my-elements-contols">
 
                     <a href="{% url 'contacts:contact_update' pk=contact.id %}">
                         <button class="btn btn-warning">
@@ -29,12 +44,8 @@
                             Full info
                         </button>
                     </a>
-                </p>
-                {% if contact.department is not None%}
-                    <p>Department: {{ contact.department }}</p>
-                {% endif %}
-                <p>Phone number: {{ contact.phone_number }}</p>
-            </div>
+
+                </div>
             </li>
         {% endfor %}
     </ol>
