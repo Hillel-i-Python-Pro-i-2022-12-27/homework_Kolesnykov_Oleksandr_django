@@ -25,7 +25,7 @@ class Contact(models.Model):
     department = models.ForeignKey(
         Department,
         on_delete=models.CASCADE,
-        related_name='contacts',
+        related_name="contacts",
         default=None,
         null=True,
         blank=False,

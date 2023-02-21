@@ -22,7 +22,7 @@ class ContactCreateView(CreateView):
     model = Contact
     fields = (
         "user_name",
-        'department',
+        "department",
         "phone_number",
         "is_auto_generated",
     )
@@ -34,7 +34,7 @@ class ContactUpdateView(UpdateView):
     model = Contact
     fields = (
         "user_name",
-        'department',
+        "department",
         "phone_number",
         "is_auto_generated",
     )
