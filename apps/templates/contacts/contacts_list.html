@@ -12,19 +12,19 @@
                 <p> {{ contact.user_name }}
 
                     <a href="{% url 'contacts:contact_update' pk=contact.id %}">
-                        <button>
+                        <button class="btn btn-warning">
                             Edit
                         </button>
                     </a>
 
                     <a href="{% url 'contacts:contact_delete' pk=contact.id %}">
-                       <button>
+                       <button class="btn btn-danger">
                            Delete
                        </button>
                     </a>
 
                     <a href="{% url 'contacts:contact_detail' pk=contact.id %}">
-                        <button>
+                        <button class="btn btn-info">
                             Full info
                         </button>
                     </a>
