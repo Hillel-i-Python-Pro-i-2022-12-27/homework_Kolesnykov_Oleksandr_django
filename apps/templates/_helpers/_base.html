@@ -1,6 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
     <meta charset="UTF-8">
     <title>{{ Title }}</title>
 
@@ -14,6 +16,10 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     {# Connect Bootstrap - END #}
+
+    <link
+    href="{% static 'styles/index.css' %}"
+    rel="stylesheet">
 
 </head>
 <body>
