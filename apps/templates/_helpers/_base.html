@@ -2,9 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
 <link>
     <meta charset="UTF-8">
     <title>{{ Title }}</title>
+
+    {# Add favico #}
+    <link rel="icon" type="image" href="{% static "./favico/favico.ico" %}">
 
     {# Connect Bootstrap - BEGIN #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -20,7 +24,6 @@
     <link
     href="{% static 'styles/index.css' %}"
     rel="stylesheet">
-
 </head>
 <body>
 <div class="container-fluid">

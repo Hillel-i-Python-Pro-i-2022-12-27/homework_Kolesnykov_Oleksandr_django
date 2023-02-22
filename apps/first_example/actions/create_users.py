@@ -4,7 +4,6 @@ from random import choice, randint
 
 
 def create_email_for_user(human=None):
-
     if human is None:
         human = create_one_human()
 

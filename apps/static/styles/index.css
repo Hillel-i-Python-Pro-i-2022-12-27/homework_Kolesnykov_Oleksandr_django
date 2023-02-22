@@ -23,6 +23,6 @@
 
 .my-element-style .my-photo,
 .my-element-style .my-photo > img {
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
 }
