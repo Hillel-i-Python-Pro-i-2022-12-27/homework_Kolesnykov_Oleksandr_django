@@ -2,6 +2,7 @@
 # Make all actions needed for run homework from zero.
 d-homework-i-run:
 	@make init-config-i-homework && \
+	make migrate && \
 	make d-run
 
 .PHONY: d-homework-i-purge
@@ -44,7 +45,8 @@ init-config-i-homework:
 .PHONY: homework-i-run
 # Run homework.
 homework-i-run:
-	@python main.py
+	@make migrate && \
+	python manage.py runserver
 
 .PHONY: homework-i-purge
 homework-i-purge:
@@ -60,3 +62,28 @@ pre-commit-run:
 # Run tools for all files.
 pre-commit-run-all:
 	@pre-commit run --all-files
+
+.PHONY: migrations
+# Make migrations
+migrations:
+	@python manage.py makemigrations
+
+.PHONY: migrate
+# Migrate
+migrate:
+	@python manage.py migrate
+
+.PHONY: django-i-generate-contacts-i-100
+# Generate 100 contacts
+django-i-generate-contacts-i-100:
+	@python manage.py generate_contacts --amount 100
+
+.PHONY: django-i-delete-auto-generated-contacts-i-all
+# Delete all auto generated contacts
+django-i-delete-auto-generated-contacts-i-all:
+	@python manage.py delete_contacts --is-only-auto-generated
+
+.PHONY: init-dev-i-create-superuser
+# Create superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input

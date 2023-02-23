@@ -1,0 +1,52 @@
+{% extends '_helpers/_base.html' %}
+
+{% block content %}
+    <a href="{% url 'contacts:contact_create' %}">
+        <button>
+            Create new contact
+        </button>
+    </a>
+    <ol>
+        {% for contact in object_list %}
+            <li>
+            <div class="my-element-style">
+            <div class="my-photo">
+                {% if contact.photo %}
+                    <img src="{{ contact.photo.url }}" alt="Photo">
+                {% endif %}
+            </div>
+            <div class="my-element-content">
+
+                <p>{{ contact.user_name }}</p>
+
+                {% if contact.department is not None%}
+                    <p>Department: {{ contact.department }}</p>
+                {% endif %}
+                <p>Phone number: {{ contact.phone_number }}</p>
+            </div>
+
+                <div class="my-elements-contols">
+
+                    <a href="{% url 'contacts:contact_update' pk=contact.id %}">
+                        <button class="btn btn-warning">
+                            Edit
+                        </button>
+                    </a>
+
+                    <a href="{% url 'contacts:contact_delete' pk=contact.id %}">
+                       <button class="btn btn-danger">
+                           Delete
+                       </button>
+                    </a>
+
+                    <a href="{% url 'contacts:contact_detail' pk=contact.id %}">
+                        <button class="btn btn-info">
+                            Full info
+                        </button>
+                    </a>
+
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}
