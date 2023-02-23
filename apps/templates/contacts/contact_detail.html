@@ -1,0 +1,16 @@
+{% extends '_helpers/_base.html' %}
+
+{% block content %}
+    <h1>Full info about {{ object.user_name }}</h1>
+    <p>Name : {{ object.user_name }}</p>
+    <p>Phone number : {{ object.phone_number }}</p>
+    <p>Is auto generated : {{ object.is_auto_generated }}</p>
+    <p>Created at : {{ object.created_at }}</p>
+    <p>Modified at : {{ object.modified_at }}</p>
+
+    <a href="{% url 'contacts:contacts_list' %}">
+        <button>
+            Return
+        </button>
+    </a>
+{% endblock %}
