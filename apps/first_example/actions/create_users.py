@@ -1,6 +1,7 @@
-from faker import Faker
-from string import ascii_letters
 from random import choice, randint
+from string import ascii_letters
+
+from faker import Faker
 
 
 def create_email_for_user(user_name):
