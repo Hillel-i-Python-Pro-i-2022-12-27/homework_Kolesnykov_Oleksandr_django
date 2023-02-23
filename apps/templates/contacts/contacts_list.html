@@ -29,6 +29,9 @@
                         </button>
                     </a>
                 </p>
+                {% if contact.department is not None%}
+                    <p>Department: {{ contact.department }}</p>
+                {% endif %}
                 <p>Phone number: {{ contact.phone_number }}</p>
             </li>
         {% endfor %}

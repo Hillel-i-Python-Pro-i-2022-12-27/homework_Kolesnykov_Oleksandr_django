@@ -45,7 +45,8 @@ init-config-i-homework:
 .PHONY: homework-i-run
 # Run homework.
 homework-i-run:
-	@python main.py
+	@make migrate && \
+	python manage.py runserver
 
 .PHONY: homework-i-purge
 homework-i-purge:
@@ -81,3 +82,8 @@ django-i-generate-contacts-i-100:
 # Delete all auto generated contacts
 django-i-delete-auto-generated-contacts-i-all:
 	@python manage.py delete_contacts --is-only-auto-generated
+
+.PHONY: init-dev-i-create-superuser
+# Create superuser
+init-dev-i-create-superuser:
+	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
