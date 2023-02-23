@@ -9,30 +9,43 @@
     <ol>
         {% for contact in object_list %}
             <li>
-                <p> {{ contact.user_name }}
+            <div class="my-element-style">
+            <div class="my-photo">
+                {% if contact.photo %}
+                    <img src="{{ contact.photo.url }}" alt="Photo">
+                {% endif %}
+            </div>
+            <div class="my-element-content">
+
+                <p>{{ contact.user_name }}</p>
+
+                {% if contact.department is not None%}
+                    <p>Department: {{ contact.department }}</p>
+                {% endif %}
+                <p>Phone number: {{ contact.phone_number }}</p>
+            </div>
+
+                <div class="my-elements-contols">
 
                     <a href="{% url 'contacts:contact_update' pk=contact.id %}">
-                        <button>
+                        <button class="btn btn-warning">
                             Edit
                         </button>
                     </a>
 
                     <a href="{% url 'contacts:contact_delete' pk=contact.id %}">
-                       <button>
+                       <button class="btn btn-danger">
                            Delete
                        </button>
                     </a>
 
                     <a href="{% url 'contacts:contact_detail' pk=contact.id %}">
-                        <button>
+                        <button class="btn btn-info">
                             Full info
                         </button>
                     </a>
-                </p>
-                {% if contact.department is not None%}
-                    <p>Department: {{ contact.department }}</p>
-                {% endif %}
-                <p>Phone number: {{ contact.phone_number }}</p>
+
+                </div>
             </li>
         {% endfor %}
     </ol>

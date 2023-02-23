@@ -31,6 +31,13 @@ class Contact(models.Model):
         blank=False,
     )
 
+    photo = models.ImageField(
+        max_length=255,
+        upload_to="contacts/contact/photo",
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return f"Name: {self.user_name} - phone number: {self.phone_number}"
 

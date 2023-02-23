@@ -1,22 +1,31 @@
 <header>
-    <ul>
-        <li>
-            <a href="http://127.0.0.1:8000/admin/">Admin panel</a>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div>
+            <object
+                type="image/svg+xml"
+                data="/static/logo/logo.svg">
+            </object>
+        </div>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin:index' %}">Admin panel</a>
         </li>
-        <li>
-            <a href="{% url 'root:home_page' %}">Home Page</a>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'root:home_page' %}">Home Page</a>
         </li>
-        <li>
-            <a href="{% url 'first_example:greetings_default' %}">About me</a>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'first_example:greetings_default' %}">About me</a>
         </li>
-        <li>
-            <a href="{% url 'first_example:users_accounts' %}">Create users accounts</a>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'first_example:users_accounts' %}">Create users accounts</a>
         </li>
-        <li>
-            <a href="{% url 'first_example:users_accounts_amount' amount=5 %}">Create users accounts with amount</a>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'first_example:users_accounts_amount' amount=5 %}">Create users accounts with amount</a>
         </li>
-        <li>
-            <a href="{% url 'contacts:contacts_list' %}">Generator of contacts</a>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contacts:contacts_list' %}">Generator of contacts</a>
         </li>
     </ul>
+    </nav>
 </header>

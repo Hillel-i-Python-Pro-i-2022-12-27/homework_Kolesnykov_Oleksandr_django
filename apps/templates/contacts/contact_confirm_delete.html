@@ -4,7 +4,7 @@
     <form method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete "{{ object }} ?"</p>
-        <button type="submit">
+        <button type="submit" class="btn btn-danger">
             Delete
         </button>
     </form>

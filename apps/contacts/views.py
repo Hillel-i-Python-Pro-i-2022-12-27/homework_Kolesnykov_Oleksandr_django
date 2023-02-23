@@ -24,6 +24,7 @@ class ContactCreateView(CreateView):
         "user_name",
         "department",
         "phone_number",
+        "photo",
         "is_auto_generated",
     )
 
@@ -36,6 +37,7 @@ class ContactUpdateView(UpdateView):
         "user_name",
         "department",
         "phone_number",
+        "photo",
         "is_auto_generated",
     )
 
