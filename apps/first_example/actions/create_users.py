@@ -5,6 +5,7 @@ from faker import Faker
 
 
 def create_email_for_user(user_name):
+
     mailboxes = ["@ukr.net", "@hillel.ua", "@gmail.com", "@git.com", "@hotmail.com"]
     adjectives = ["angry", "beautiful", "brave", "clever", "crazy", "dangerous", "evil", "happy", "funny"]
 
@@ -26,6 +27,7 @@ class Human:
 
 
 def create_one_human():
+
     name = Faker().first_name()
     email = create_email_for_user(name)
     password = create_password()
