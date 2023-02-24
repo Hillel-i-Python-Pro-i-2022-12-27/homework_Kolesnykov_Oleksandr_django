@@ -1,16 +1,14 @@
-from faker import Faker
-from string import ascii_letters
 from random import choice, randint
+from string import ascii_letters
+
+from faker import Faker
 
 
-def create_email_for_user(human=None):
-    if human is None:
-        human = create_one_human()
-
+def create_email_for_user(user_name):
     mailboxes = ["@ukr.net", "@hillel.ua", "@gmail.com", "@git.com", "@hotmail.com"]
     adjectives = ["angry", "beautiful", "brave", "clever", "crazy", "dangerous", "evil", "happy", "funny"]
 
-    return f"{choice(adjectives)}_{human.name}{choice(mailboxes)}"
+    return f"{choice(adjectives)}_{user_name}{choice(mailboxes)}"
 
 
 def create_password():
@@ -21,14 +19,18 @@ def create_password():
 
 
 class Human:
-    def __init__(self):
-        self.name = Faker().first_name()
-        self.user_email = create_email_for_user(self)
-        self.password = create_password()
+    def __init__(self, name, email, password):
+        self.name = name
+        self.user_email = email
+        self.password = password
 
 
 def create_one_human():
-    return Human()
+    name = Faker().first_name()
+    email = create_email_for_user(name)
+    password = create_password()
+
+    return Human(name, email, password)
 
 
 def create_generator_of_humans(amount: int = 10):
