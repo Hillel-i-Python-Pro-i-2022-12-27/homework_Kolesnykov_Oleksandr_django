@@ -2,7 +2,6 @@
 # Make all actions needed for run homework from zero.
 d-homework-i-run:
 	@make init-config-i-homework && \
-	make migrate && \
 	make d-run
 
 .PHONY: d-homework-i-purge
@@ -10,12 +9,21 @@ d-homework-i-run:
 d-homework-i-purge:
 	@make d-purge
 
-
 .PHONY: d-run
 # Just run
 d-run:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker-compose up --build
+		COMPOSE_PROFILES=full_dev \
+		docker-compose up \
+			--build
+
+.PHONY: d-run-i-local-dev
+# Just run
+d-run-i-local-dev:
+	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		COMPOSE_PROFILES=local_dev \
+		docker-compose \
+			up --build
 
 .PHONY: d-stop
 # Stop services
@@ -40,13 +48,13 @@ init-dev:
 .PHONY: init-config-i-homework
 # Init configs for homework
 init-config-i-homework:
-	@cp docker-compose.override.homework.yml docker-compose.override.yml
+	@cp docker-compose.override.homework.yml docker-compose.override.yml && \
+		cp .env.homework .env
 
 .PHONY: homework-i-run
 # Run homework.
 homework-i-run:
-	@make migrate && \
-	python manage.py runserver
+	@python manage.py runserver
 
 .PHONY: homework-i-purge
 homework-i-purge:
