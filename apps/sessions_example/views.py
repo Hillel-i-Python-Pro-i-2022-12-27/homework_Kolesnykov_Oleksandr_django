@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from datetime import datetime
 
 KEY__COUNT_OF_VISITS = "count_of_visits"
-KEY__DATE_OF_LAST_VISIT = "date_of_visit_last"
+KEY__DATETIME_OF_LAST_VISIT = "datetime_of_last_visit"
 
 
 class SessionExampleView(TemplateView):
@@ -15,12 +15,12 @@ class SessionExampleView(TemplateView):
         count_of_visits += 1
         session[KEY__COUNT_OF_VISITS] = count_of_visits
 
-        session_time_now = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        session_time_last = session.get(KEY__DATE_OF_LAST_VISIT, "This is your first visit, hello !")
-        session[KEY__DATE_OF_LAST_VISIT] = session_time_now
+        datetime_now = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        datetime_of_last_visit = session.get(KEY__DATETIME_OF_LAST_VISIT, "This is your first visit, hello !")
+        session[KEY__DATETIME_OF_LAST_VISIT] = datetime_now
 
         context = super().get_context_data(**kwargs)
         context["count_of_visits"] = count_of_visits
-        context["date_of_visit_now"] = session_time_now
-        context["date_of_visit_last"] = session_time_last
+        context["datetime_now"] = datetime_now
+        context["datetime_of_last_visit"] = datetime_of_last_visit
         return context
