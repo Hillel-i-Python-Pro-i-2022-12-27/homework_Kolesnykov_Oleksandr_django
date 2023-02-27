@@ -60,6 +60,7 @@ LOCAL_APPS = [
     "apps.contacts",
     "apps.first_example",
     "apps.users",
+    "apps.sessions_example",
 ]
 
 THIRD_PARTY_APPS = [
