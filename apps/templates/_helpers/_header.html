@@ -31,4 +31,10 @@
         </li>
     </ul>
     </nav>
+
+    {% if user.is_authenticated %}
+        {{ user.username }}
+    {% else%}
+        Unknown user :(
+    {% endif %}
 </header>
