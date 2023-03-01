@@ -22,7 +22,7 @@
     <p>Email : {{ object.email }}</p>
 
     <div class="my-elements-contols">
-        <a href="{% url 'users:user_update' pk=user.id %}">
+        <a href="{% url 'users:update_profile' pk=user.id %}">
             <button class="btn btn-warning">
                 Edit Profile
             </button>

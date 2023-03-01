@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView, UpdateView, DetailView
@@ -18,6 +20,11 @@ class RegisterFormView(FormView):
         user = form.save()
         login(self.request, user)
         return redirect("root:home_page")
+
+
+class LoginFormView(LoginView):
+    form_class = AuthenticationForm
+    template_name = "registration/login.html"
 
 
 class UserDetailView(DetailView):

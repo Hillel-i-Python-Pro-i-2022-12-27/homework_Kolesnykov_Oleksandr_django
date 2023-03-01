@@ -31,7 +31,7 @@
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'users:user_detail' pk=user.id %}">My profile</a>
+            <a class="nav-link" href="{% url 'users:profile' pk=user.id %}">My profile</a>
         </li>
         {% endif %}
     </ul>
@@ -41,7 +41,7 @@
         {{ user.username }}
         <a href="{% url 'logout' %}">Logout</a>
     {% else%}
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'users:login' %}">Login</a>
         <p>You don't have an account ? <a href="{% url 'users:signup' %}">Create it !</a></p>
     {% endif %}
 </header>
