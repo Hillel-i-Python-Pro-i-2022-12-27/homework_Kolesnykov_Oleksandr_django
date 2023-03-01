@@ -29,6 +29,11 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'sessions_example:index' %}">Sessions</a>
         </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:user_detail' pk=user.id %}">My profile</a>
+        </li>
+        {% endif %}
     </ul>
     </nav>
 

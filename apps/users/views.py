@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model, login
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import FormView
+from django.views.generic import FormView, UpdateView, DetailView
 
 from apps.users.forms import RegisterUserForm
 
@@ -18,3 +18,20 @@ class RegisterFormView(FormView):
         user = form.save()
         login(self.request, user)
         return redirect("root:home_page")
+
+
+class UserDetailView(DetailView):
+    model = User
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "photo",
+    )
+
+    success_url = reverse_lazy("root:home_page")
