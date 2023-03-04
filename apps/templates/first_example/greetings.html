@@ -1,7 +1,13 @@
 {% extends '_helpers/_base.html' %}
 
 {% block content %}
-    <div>
-    <p>Greetings ! I am {{ name }}, {{ age }} years old</p>
-    </div>
+    {% if user.is_authenticated %}
+        <div>
+        <p>Greetings ! I am {{ name }}, {{ age }} years old.</p>
+        </div>
+    {% else %}
+        <div>
+        <p>Please Log In to see this page</p>
+        </div>
+    {% endif %}
 {% endblock %}

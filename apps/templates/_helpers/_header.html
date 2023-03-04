@@ -29,6 +29,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'sessions_example:index' %}">Sessions</a>
         </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:profile' pk=user.id %}">My profile</a>
+        </li>
+        {% endif %}
     </ul>
     </nav>
+
+    {% if user.is_authenticated %}
+        {{ user.username }}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else%}
+        <a href="{% url 'users:login' %}">Login</a>
+        <p>You don't have an account ? <a href="{% url 'users:signup' %}">Create it !</a></p>
+    {% endif %}
 </header>
