@@ -7,7 +7,10 @@ def requests_menu(request):
 
 
 def list_of_requests(request):
-    context = {"object_list": RequestsLogger.objects.all()}
+    context = {
+        "object_list": RequestsLogger.objects.all(),
+        "count_of_visits": RequestsLogger.objects.all().count(),
+    }
 
     return render(
         request=request,
