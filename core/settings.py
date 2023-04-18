@@ -61,6 +61,7 @@ LOCAL_APPS = [
     "apps.first_example",
     "apps.users",
     "apps.sessions_example",
+    "apps.logger_middleware",
 ]
 
 THIRD_PARTY_APPS = [
@@ -80,6 +81,13 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+REQUEST_LOGGER_MIDDLEWARE = env.bool("REQUESTS_LOGGER_MIDDLEWARE", False)
+if REQUEST_LOGGER_MIDDLEWARE:
+    MIDDLEWARE.extend(
+        [
+            "apps.logger_middleware.middleware.RequestsLoggerMiddleware",
+        ]
+    )
 
 ROOT_URLCONF = "core.urls"
 

@@ -34,6 +34,9 @@
             <a class="nav-link" href="{% url 'users:profile' pk=user.id %}">My profile</a>
         </li>
         {% endif %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'requests:requests_menu' %}">Requests menu</a>
+        </li>
     </ul>
     </nav>
 

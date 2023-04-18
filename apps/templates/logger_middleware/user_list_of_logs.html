@@ -1,0 +1,24 @@
+{% extends '_helpers/_base.html' %}
+
+{% block content %}
+<ol>
+
+    <h3>You have visited {{ count_of_visits }} pages</h3>
+
+    {% for request in object_list %}
+        <li>
+        {% if request.user %}
+            <p> User: {{ request.user }} </p>
+        {% else %}:
+            <p>User: Unknown</p>
+        {% endif %}
+            <p> Path: {{ request.path }} </p>
+        {% if request.session_key %}
+            <p> Session_key: {{ request.session_key }} </p>
+        {% else %}
+            <p>Session_key: unknown</p>
+        {% endif %}
+        </li>
+    {% endfor %}
+</ol>
+{% endblock %}
