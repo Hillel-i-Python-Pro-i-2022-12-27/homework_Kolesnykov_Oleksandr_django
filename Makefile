@@ -26,13 +26,13 @@ d-run-i-local-dev:
 			up --build
 
 .PHONY: d-stop
-# Stop services
+# Stop management
 d-stop:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker-compose down
 
 .PHONY: d-purge
-# Purge all data related with services
+# Purge all data related with management
 d-purge:
 	@COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker-compose down --volumes --remove-orphans --rmi local --timeout 0
@@ -95,3 +95,8 @@ django-i-delete-auto-generated-contacts-i-all:
 # Create superuser
 init-dev-i-create-superuser:
 	@DJANGO_SUPERUSER_PASSWORD=admin123 python manage.py createsuperuser --user admin --email admin@gmail.com --no-input
+
+.PHONY: django-i-delete-all-requests-logs
+# Delete all auto generated contacts
+django-i-delete-all-requests-logs:
+	@python manage.py delete_all_requests_logs

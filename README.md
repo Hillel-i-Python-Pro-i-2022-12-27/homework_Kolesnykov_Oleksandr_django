@@ -51,3 +51,11 @@ Purge all data related with services
 ```shell
 make d-purge
 ```
+
+### :put_litter_in_its_place: Delete Requests Logs
+
+Delete all RequestsLogger records
+
+```shell
+make django-i-delete-all-requests-logs
+```
